@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱游戏 · 站点说明与使用指南</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #fafaf9;
+            color: #1c1b18;
+            font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.7;
+            font-weight: 400;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 2.4rem 1.2rem 4rem;
+        }
+
+        /* 标题层级 */
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            line-height: 1.25;
+            margin-bottom: 0.6rem;
+            color: #211f1b;
+        }
+
+        h2 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+            margin-top: 2.6rem;
+            margin-bottom: 0.9rem;
+            color: #2b2822;
+            border-left: 3px solid #bc9b6b;
+            padding-left: 1rem;
+        }
+
+        h3 {
+            font-size: 1.05rem;
+            font-weight: 500;
+            margin-top: 1.8rem;
+            margin-bottom: 0.4rem;
+            color: #36322b;
+        }
+
+        p {
+            margin-bottom: 1.2rem;
+            font-size: 0.98rem;
+            color: #2f2c26;
+        }
+
+        a {
+            color: #7d643e;
+            text-decoration: none;
+            border-bottom: 1px solid #d4c4aa;
+            transition: border-color 0.15s, color 0.15s;
+        }
+
+        a:hover,
+        a:focus {
+            color: #4d3c20;
+            border-bottom-color: #7d643e;
+        }
+
+        .subtle-meta {
+            font-size: 0.85rem;
+            color: #8b8579;
+            margin-top: -0.3rem;
+            margin-bottom: 1.8rem;
+            letter-spacing: 0.02em;
+        }
+
+        .card-list {
+            list-style: none;
+            padding: 0;
+            margin: 1.2rem 0 1.8rem;
+        }
+
+        .card-list li {
+            background-color: #ffffff;
+            border-radius: 12px;
+            padding: 1rem 1.3rem;
+            margin-bottom: 0.7rem;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02), 0 1px 3px rgba(0, 0, 0, 0.02);
+            border: 1px solid #edeae2;
+            transition: box-shadow 0.2s;
+        }
+
+        .card-list li strong {
+            font-weight: 500;
+            color: #211f1b;
+            display: inline-block;
+            min-width: 4.2rem;
+        }
+
+        .card-list li:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03), 0 2px 6px rgba(0, 0, 0, 0.02);
+        }
+
+        .scene-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+            margin: 1rem 0 1.6rem;
+        }
+
+        .scene-item {
+            background: #ffffff;
+            border: 1px solid #e2ddd4;
+            border-radius: 10px;
+            padding: 0.9rem 1rem;
+            font-size: 0.93rem;
+        }
+
+        .scene-item span {
+            display: block;
+            font-weight: 480;
+            color: #3b362e;
+            margin-bottom: 0.2rem;
+        }
+
+        .scene-item small {
+            font-size: 0.85rem;
+            color: #7d7568;
+        }
+
+        .faq-block {
+            margin-top: 2.2rem;
+            padding-top: 1.6rem;
+            border-top: 1px solid #e2ddd4;
+        }
+
+        .faq-q {
+            font-weight: 470;
+            margin-top: 1.1rem;
+            margin-bottom: 0.25rem;
+            color: #2f2b24;
+        }
+
+        .faq-a {
+            font-size: 0.93rem;
+            color: #4b463d;
+            margin-left: 0.3rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .notice-box {
+            background: #f3f0ea;
+            border-radius: 14px;
+            padding: 1.1rem 1.3rem;
+            margin: 1.8rem 0 1rem;
+            font-size: 0.9rem;
+            color: #3f3a30;
+            border: 1px solid #e3ddd1;
+        }
+
+        .notice-box strong {
+            font-weight: 500;
+            color: #2b271f;
+        }
+
+        .footnote {
+            font-size: 0.85rem;
+            color: #8b8579;
+            margin-top: 3rem;
+            padding-top: 1.2rem;
+            border-top: 1px solid #e7e2d9;
+        }
+
+        @media (max-width: 540px) {
+            .container {
+                padding: 1.6rem 1rem 3rem;
+            }
+
+            h1 {
+                font-size: 1.7rem;
+            }
+
+            h2 {
+                font-size: 1.1rem;
+            }
+
+            .scene-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .card-list li {
+                padding: 0.8rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <h1>爱游戏 · 产品简析与使用说明</h1>
+        <div class="subtle-meta">站点介绍 · 功能亮点 · 可信指引</div>
+
+        <p>
+            <a href="https://webofficial-aiyouxi.com.cn">爱游戏</a>
+            是一个面向中文用户的游戏信息聚合与辅助工具平台，致力于为玩家提供清晰、直接的游戏资源指引和轻量级社区协作体验。它的定位并非大型游戏门户，而是一个聚焦于「发现—理解—尝试」的轻服务站点。它不提供下载、充值或账号交易，而是围绕资讯、工具和玩家笔记展开。
+        </p>
+
+        <h2>站点核心构成</h2>
+        <p>
+            从整体架构来看，爱游戏主要覆盖三个功能层：其一是游戏资料索引，按类型与热度整理基础信息；其二是玩家贡献的短评与体验摘要，形成参考价值较高的内容池；其三是内置的几个实用小工具（如随机选游戏、类型速查）。这些模块彼此独立又互相补充，共同构成了站点的日常使用流。
+        </p>
+
+        <h2>亮点与设计思路</h2>
+        <ul class="card-list">
+            <li>
+                <strong>轻量导航</strong> — 页面层级控制在两层以内，从首页到具体游戏详情不超过两次点击，降低浏览中的认知负担。
+            </li>
+            <li>
+                <strong>社区摘要</strong> — 每条游戏条目下方附带玩家短评摘要（非实时评论），这些摘要由站点编辑整理自公开讨论，力求客观且不夸大。
+            </li>
+            <li>
+                <strong>工具嵌入</strong> — 提供「偏好筛选器」和「随机推荐」两个纯前端小工具，无需注册即可使用，数据仅储存在本地。
+            </li>
+            <li>
+                <strong>无冗余装饰</strong> — 界面采用极简文字卡片与低饱和度配色，不设置弹窗、悬浮广告或自动播放内容。
+            </li>
+        </ul>
+
+        <h2>常见使用场景</h2>
+        <p>不同类型的用户可以在爱游戏里找到适合自己的切入方式，下面是几个典型场景：</p>
+        <div class="scene-grid">
+            <div class="scene-item">
+                <span>🎮 新手探索</span>
+                <small>不熟悉当前品类，通过标签分类快速锁定感兴趣的区域，阅读短评后形成初步印象。</small>
+            </div>
+            <div class="scene-item">
+                <span>📋 快速回顾</span>
+                <small>想了解某款游戏的普遍口碑，在站点内查看整理后的玩家观点摘要，避免翻长帖。</small>
+            </div>
+            <div class="scene-item">
+                <span>🔍 偏好匹配</span>
+                <small>使用站内筛选工具，按风格、时长等维度过滤列表，得到更具针对性的推荐。</small>
+            </div>
+            <div class="scene-item">
+                <span>🧭 日常刷新</span>
+                <small>不定期浏览新入库的游戏，发现未被主流平台大量讨论的作品。</small>
+            </div>
+        </div>
+
+        <h2>使用建议与可信说明</h2>
+        <p>
+            爱游戏是一个信息聚合与参考站点，并非游戏发行方或运营平台。站内所收录的游戏内容基于公开资料整理，每一条信息都标注了来源或参考范围。对于游戏的实际体验、价格、更新状态等动态信息，建议进一步比对官方渠道或游戏内实际内容。站点编辑会定期核对数据，但仍可能存在延迟或偏差，请以原始来源为准。
+        </p>
+        <p>
+            在浏览过程中，你可以利用站内工具辅助决策，但平台不对因信息参考导致的任何选择结果承担责任。爱游戏鼓励理性消费与友善讨论，不提供付费推广位或置顶内容，所有展示信息均基于客观整理而非商业偏好。
+        </p>
+
+        <div class="notice-box">
+            <strong>注意</strong> · 本平台不收集个人身份信息，不设用户注册入口。所有工具功能均在浏览器端运行，无需担心隐私泄露。如需反馈数据错误或提交内容建议，可在站点内通过“提议”渠道留言。
+        </div>
+
+        <div class="faq-block">
+            <h2>常见疑问摘要</h2>
+            <div class="faq-q">问：爱游戏里收录的游戏是否全面？</div>
+            <div class="faq-a">答：站点目前侧重中文讨论较多的作品，以及部分小众独立游戏，并非全量数据库。覆盖率在持续扩展中。</div>
+            <div class="faq-q">问：短评摘要是否有倾向性？</div>
+            <div class="faq-a">答：摘要力求呈现多数玩家共识，对争议性评价会同时收录正面与提醒内容，不做刻意美化。</div>
+            <div class="faq-q">问：网站会开通评论或论坛功能吗？</div>
+            <div class="faq-a">答：目前没有计划。爱游戏保持“信息参考”形态，不设立讨论区或社交模块。</div>
+            <div class="faq-q">问：移动端体验如何？</div>
+            <div class="faq-a">答：页面已做响应式适配，在手机浏览器上可流畅使用所有工具，无需额外应用。</div>
+        </div>
+
+        <p style="margin-top: 1.6rem;">
+            如果你想进一步了解站点内容或开始使用，可以访问 <a href="https://webofficial-aiyouxi.com.cn">爱游戏</a>，从首页的分类卡片或搜索入口进入。建议首次使用时先浏览“新手指南”页面（位于站点底部），那里详细说明了数据来源与筛选操作逻辑。
+        </p>
+
+        <div class="footnote">
+            本页面为产品介绍与说明，所有内容基于站点公开信息编写。更新日期：2025年4月。
+        </div>
+
+    </div>
+</body>
+</html>
