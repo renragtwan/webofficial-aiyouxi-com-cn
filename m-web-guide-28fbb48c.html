@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>再次遇见 · 球探</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #f7f3e8;
+            font-family: 'Georgia', 'Palatino', 'Times New Roman', serif;
+            color: #3e3a33;
+            line-height: 1.7;
+            padding: 2rem 1.5rem 3rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .page {
+            max-width: 780px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        /* hero 区 – 克制且带一点叙述感 */
+        .hero {
+            margin: 1.8rem 0 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #d9d2c5;
+        }
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+            color: #2e2a24;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        .hero .sub {
+            font-size: 1.1rem;
+            color: #6b6256;
+            margin-bottom: 0.6rem;
+        }
+        .hero .sentence {
+            font-size: 1.05rem;
+            color: #4f483e;
+            margin-top: 0.3rem;
+        }
+
+        /* 通用区块 */
+        section {
+            margin: 2.8rem 0;
+        }
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            border-left: 3px solid #c7b9a6;
+            padding-left: 1rem;
+            margin-bottom: 1.4rem;
+            color: #3a342c;
+        }
+        p {
+            margin-bottom: 1.2rem;
+            font-size: 1.02rem;
+        }
+
+        /* 引述 / 提示框 – 更像摘记 */
+        .note {
+            background: #ece7dd;
+            border-left: 5px solid #b8aa95;
+            padding: 1.3rem 1.6rem;
+            margin: 2rem 0;
+            border-radius: 4px 12px 12px 4px;
+            font-style: normal;
+            color: #3d3730;
+        }
+        .note p {
+            margin-bottom: 0.3rem;
+        }
+        .note .tag {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #7f7569;
+        }
+
+        /* 特点卡片 – 低调分割 */
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.8rem;
+            margin: 1.5rem 0 2rem;
+        }
+        .feature-item {
+            flex: 1 1 180px;
+            background: transparent;
+            padding: 0.2rem 0;
+        }
+        .feature-item .title {
+            font-weight: 600;
+            font-size: 1.05rem;
+            color: #3f3a32;
+            margin-bottom: 0.2rem;
+        }
+        .feature-item p {
+            font-size: 0.95rem;
+            color: #5f584b;
+            margin-bottom: 0;
+        }
+
+        /* FAQ 摘要 – 极简问题列表 */
+        .faq-short {
+            margin: 2.5rem 0 1.8rem;
+            padding: 0;
+        }
+        .faq-short details {
+            margin-bottom: 0.8rem;
+            border-bottom: 1px solid #ddd6c9;
+            padding-bottom: 0.6rem;
+        }
+        .faq-short summary {
+            font-weight: 500;
+            cursor: pointer;
+            color: #3e3a33;
+            padding: 0.3rem 0;
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+        .faq-short summary::-webkit-details-marker {
+            display: none;
+        }
+        .faq-short summary::before {
+            content: "▹";
+            margin-right: 0.8rem;
+            color: #9b8e7d;
+            font-size: 1.1rem;
+        }
+        .faq-short details[open] summary::before {
+            content: "▿";
+        }
+        .faq-short .answer {
+            padding: 0.4rem 0 0.6rem 1.8rem;
+            color: #5d564b;
+            font-size: 0.95rem;
+        }
+
+        /* 底部链接区 – 自然嵌入句子 */
+        .footer-note {
+            margin-top: 3.5rem;
+            padding-top: 1.8rem;
+            border-top: 1px solid #d4cdbf;
+            font-size: 0.95rem;
+            color: #5b5449;
+            text-align: left;
+        }
+        .footer-note a {
+            color: #3f3a32;
+            text-decoration: none;
+            border-bottom: 1px solid #b8aa95;
+            transition: border-color 0.2s;
+        }
+        .footer-note a:hover {
+            border-color: #3f3a32;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #ddd6c9;
+            margin: 1.2rem 0;
+        }
+
+        /* 响应式 */
+        @media (max-width: 540px) {
+            body {
+                padding: 1.2rem 1rem 2rem;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .features {
+                gap: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- hero 区：再次访问 / 收藏的视角 -->
+    <div class="hero">
+        <p class="sub">—— 第二次打开，往往才是真正的开始</p>
+        <h1>球探 · 保留一个入口</h1>
+        <p class="sentence">
+            有些地方你偶尔路过，有些地方你会想记下来。<br>
+            这不是初遇，而是在某个平常的午后，你决定把它留在书签栏里。
+        </p>
+    </div>
+
+    <!-- 优势区：低调的叙述 -->
+    <section>
+        <h2>为什么值得留下</h2>
+        <div class="features">
+            <div class="feature-item">
+                <div class="title">不打扰</div>
+                <p>没有弹窗，没有推送，页面安静地等在那里。想起来了就打开，忘记了也不会有未读。</p>
+            </div>
+            <div class="feature-item">
+                <div class="title">习惯了</div>
+                <p>界面没什么花哨的，但用久了会觉得顺手。就像一本常翻的册子，折角的位置都熟悉。</p>
+            </div>
+            <div class="feature-item">
+                <div class="title">持续在更新</div>
+                <p>内容不是一成不变的，每隔一阵过来，总能看到些新的东西，但节奏依然从容。</p>
+            </div>
+        </div>
+
+        <!-- 引述块 – 带一点收藏的意味 -->
+        <div class="note">
+            <p class="tag">📌 书签笔记</p>
+            <p>“收藏一个网站，很多时候并不是因为它有多特别，而是你隐约觉得，以后还会需要。”</p>
+        </div>
+    </section>
+
+    <!-- 说明区：从“再次访问”角度展开 -->
+    <section>
+        <h2>关于再次访问这件事</h2>
+        <p>
+            第一次访问可能只是偶然，回来才是选择。对于 <a href="https://m-web-qiutan.com">球探</a> 来说，
+            它并不试图在第一眼就抓住你，而是希望在你第二次、第三次回来时，依然觉得自然、好用。
+        </p>
+        <p>
+            我自己的经验是：一些页面初次觉得平平，但隔了几个星期再打开，反而看出了门道。
+            也许是内容沉淀了，也许是自己的需求变了。总之，留一个链接在收藏夹里，没什么成本，却留了一个后手。
+        </p>
+        <p>
+            如果你之前来过，不妨再逛逛；如果只是随手存了，也可以偶尔点开。
+            网站没有复杂的注册门槛，也没有信息轰炸，更像一个安静的角落。
+        </p>
+    </section>
+
+    <!-- FAQ 摘要 – 极简问答，从“关注”切入 -->
+    <section class="faq-short">
+        <h2>可能想知道的 · 几句</h2>
+        <details>
+            <summary>为什么推荐收藏而不是每次搜索？</summary>
+            <div class="answer">搜索会有变动，收藏是一次性定位。尤其是移动端，省去输入和跳转，直接到达。</div>
+        </details>
+        <details>
+            <summary>内容更新频繁吗？</summary>
+            <div class="answer">保持适度的更新节奏，不会每天刷屏，但隔一阵就有新内容可看，关注即可。</div>
+        </details>
+        <details>
+            <summary>适合什么样的场景？</summary>
+            <div class="answer">日常浏览、想安静看看资讯、或是作为某个固定入口——都可以。它不挑场合。</div>
+        </details>
+    </section>
+
+    <!-- 底部链接：自然嵌入句子，不出现“进入、点击”等词 -->
+    <div class="footer-note">
+        <p>
+            如果你愿意，可以把 <a href="https://m-web-qiutan.com">球探</a> 放进手机主屏或浏览器书签。
+            以后想起的时候，直接打开就好，不必再费力寻找。
+        </p>
+        <p style="margin-top: 0.8rem; color: #7d7568;">
+            不需要每次都重新开始，有些地方值得一再回来。
+        </p>
+        <hr>
+        <p style="font-size: 0.85rem; color: #8d8476; letter-spacing: 0.5px;">
+            页面仅作为介绍 · 无诱导意图
+        </p>
+    </div>
+
+</div>
+</body>
+</html>
