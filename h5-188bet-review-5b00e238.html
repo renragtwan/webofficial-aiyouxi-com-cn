@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>188bet · 信息卡片</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(145deg, #fce3b6 0%, #f8d39a 30%, #efb87c 70%, #e3a15a 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem 1.5rem 4rem;
+        }
+
+        .page-wrap {
+            max-width: 1000px;
+            width: 100%;
+        }
+
+        /* 主视觉卡片 — Hero */
+        .hero-card {
+            background: rgba(255, 247, 235, 0.85);
+            backdrop-filter: blur(2px);
+            border-radius: 48px 48px 32px 32px;
+            padding: 3rem 2.5rem 2.8rem;
+            margin-bottom: 2.2rem;
+            box-shadow: 0 20px 40px -12px rgba(120, 60, 20, 0.25);
+            text-align: center;
+        }
+
+        .hero-card h1 {
+            font-size: 2.8rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            color: #4c2e16;
+            line-height: 1.2;
+            margin-bottom: 0.6rem;
+        }
+
+        .hero-card h1 span {
+            background: linear-gradient(to right, #bc6c25, #9d5118);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 600;
+        }
+
+        .hero-card p {
+            font-size: 1.15rem;
+            color: #5d3e23;
+            max-width: 680px;
+            margin: 1.2rem auto 1.8rem;
+            line-height: 1.7;
+        }
+
+        .hero-tagline {
+            display: inline-block;
+            background: #eec99c;
+            padding: 0.45rem 1.8rem;
+            border-radius: 60px;
+            font-size: 0.9rem;
+            color: #3b2815;
+            letter-spacing: 0.5px;
+        }
+
+        /* 卡片网格 */
+        .card-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.8rem;
+            margin-bottom: 2.4rem;
+        }
+
+        .card {
+            background: #fffbf5;
+            border-radius: 28px;
+            padding: 1.8rem 1.8rem 2rem;
+            box-shadow: 0 12px 24px -8px rgba(90, 50, 20, 0.12);
+            transition: transform 0.15s ease, box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 18px 32px -12px rgba(110, 60, 20, 0.18);
+        }
+
+        .card h2 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #4c2a10;
+            border-left: 6px solid #d9964e;
+            padding-left: 0.85rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .card p, .card li {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #3c2c1b;
+        }
+
+        .card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .card li {
+            padding: 0.35rem 0 0.35rem 1.8rem;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="%23c07d3a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>') left center no-repeat;
+            background-size: 16px;
+            margin-bottom: 0.3rem;
+        }
+
+        .card .highlight-num {
+            display: inline-block;
+            background: #f5e3cd;
+            border-radius: 30px;
+            padding: 0.1rem 0.9rem;
+            font-weight: 500;
+            color: #7b4a1d;
+        }
+
+        /* 自然链接段落 — 卡片式 */
+        .link-section {
+            background: #fffbf5;
+            border-radius: 28px;
+            padding: 2rem 2.2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 12px 24px -8px rgba(90, 50, 20, 0.12);
+        }
+
+        .link-section p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #2f2213;
+        }
+
+        .link-section a {
+            color: #a85f1e;
+            background: #f2e0cc;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.1rem 0.8rem;
+            border-radius: 40px;
+            transition: background 0.15s, color 0.15s;
+            white-space: nowrap;
+            display: inline-block;
+            margin: 0 0.1rem;
+        }
+
+        .link-section a:hover {
+            background: #d9964e;
+            color: #1f1308;
+        }
+
+        /* 适合人群 + faq 摘要 合并卡片 */
+        .group-card {
+            background: #fffbf5;
+            border-radius: 28px;
+            padding: 1.8rem 2rem 2.2rem;
+            box-shadow: 0 12px 24px -8px rgba(90, 50, 20, 0.12);
+            margin-bottom: 2rem;
+        }
+
+        .group-card h2 {
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: #4c2a10;
+            border-left: 6px solid #d9964e;
+            padding-left: 0.85rem;
+            margin-bottom: 1rem;
+        }
+
+        .group-flex {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem 2.5rem;
+            justify-content: space-between;
+        }
+
+        .group-col {
+            flex: 1 1 180px;
+        }
+
+        .group-col h3 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #7a4d20;
+            margin-bottom: 0.5rem;
+        }
+
+        .group-col p, .group-col li {
+            font-size: 0.98rem;
+            line-height: 1.6;
+            color: #3c2c1b;
+        }
+
+        .group-col ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .group-col li {
+            padding-left: 1.4rem;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="%23c07d3a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>') left center no-repeat;
+            background-size: 14px;
+            margin-bottom: 0.2rem;
+        }
+
+        .faq-mini {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px dashed #dbb286;
+        }
+
+        .faq-mini details {
+            margin-bottom: 0.6rem;
+        }
+
+        .faq-mini summary {
+            font-weight: 500;
+            color: #5c381c;
+            cursor: pointer;
+            padding: 0.25rem 0;
+        }
+
+        .faq-mini details p {
+            margin-top: 0.4rem;
+            color: #3c2c1b;
+            line-height: 1.6;
+            padding-left: 0.3rem;
+        }
+
+        /* 页脚 */
+        .footer-note {
+            text-align: center;
+            color: #4f351d;
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-top: 0.4rem;
+        }
+
+        /* 响应式 */
+        @media (max-width: 700px) {
+            .card-grid {
+                grid-template-columns: 1fr;
+                gap: 1.3rem;
+            }
+
+            .hero-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .hero-card h1 {
+                font-size: 2rem;
+            }
+
+            .link-section {
+                padding: 1.5rem;
+            }
+
+            .group-card {
+                padding: 1.5rem;
+            }
+
+            .group-flex {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+        }
+
+        @media (max-width: 450px) {
+            body {
+                padding: 1rem 0.8rem 3rem;
+            }
+
+            .hero-card h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrap">
+
+    <!-- 主视觉 -->
+    <div class="hero-card">
+        <h1>关于 <span>188bet</span> 与平台生态</h1>
+        <p>一个围绕数字娱乐与体育互动的综合性服务空间，汇集实时资讯、玩法解析与社群交流。在这里，信息更透明，选择更从容。</p>
+        <div class="hero-tagline">⚡ 聚焦趋势 · 理性探索</div>
+    </div>
+
+    <!-- 用途卡片 + 场景卡片 -->
+    <div class="card-grid">
+        <div class="card">
+            <h2>用途概览</h2>
+            <ul>
+                <li><span class="highlight-num">体育</span> 赛事指数与动态追踪</li>
+                <li><span class="highlight-num">电玩</span> 多元主题与策略模拟</li>
+                <li><span class="highlight-num">真人</span> 即时互动与实景体验</li>
+                <li><span class="highlight-num">棋牌</span> 经典对局与技巧打磨</li>
+            </ul>
+            <p style="margin-top: 1rem; font-size: 0.95rem;">功能模块持续迭代，满足不同偏好用户的日常探索需求。</p>
+        </div>
+        <div class="card">
+            <h2>典型场景</h2>
+            <p>无论是午休时快速浏览几场焦点赛事数据，还是在晚间静下心来研究棋牌拆解，<strong>188bet</strong> 的界面结构与信息流都能适应碎片与沉浸两种节奏。</p>
+            <p style="margin-top: 1rem;">同时支持移动端与桌面端自适应布局，场景切换无缝衔接。</p>
+        </div>
+    </div>
+
+    <!-- 自然链接段落 -->
+    <div class="link-section">
+        <p>
+            对于希望系统了解体育博彩与互动娱乐的用户来说，选择信息架构清晰、数据更新及时的平台尤为关键。
+            从足球五大联赛到电竞热门项目，<a href="https://h5-188bet.com">188bet</a> 所提供的体育数据模块与实时赔率界面，在同类服务中展现出较高的整合度。
+            而真人视讯与棋牌版块同样保持了统一的交互逻辑，方便用户快速找到感兴趣的版块。
+        </p>
+    </div>
+
+    <!-- 适合人群 + FAQ 摘要 (合并卡片) -->
+    <div class="group-card">
+        <h2>适合人群 · 常见疑问</h2>
+        <div class="group-flex">
+            <div class="group-col">
+                <h3>👥 适合人群</h3>
+                <ul>
+                    <li>体育赛事爱好者，希望获得更立体的数据参考</li>
+                    <li>休闲策略玩家，享受棋牌与电玩的逻辑乐趣</li>
+                    <li>追求真实互动氛围的真人娱乐用户</li>
+                    <li>注重界面效率与信息密度的理性体验者</li>
+                </ul>
+            </div>
+            <div class="group-col">
+                <h3>❓ 常见疑问</h3>
+                <ul>
+                    <li>是否支持多语言界面？—— 目前以中文为主，同时支持部分外语</li>
+                    <li>数据更新频率？—— 核心赛事数据保持分钟级刷新</li>
+                    <li>是否需要下载额外软件？—— 基于 H5 浏览器，无需安装</li>
+                </ul>
+            </div>
+        </div>
+        <div class="faq-mini">
+            <details>
+                <summary>如何快速定位自己感兴趣的版块？</summary>
+                <p>首页顶部导航按「体育」「真人」「棋牌」「电玩」分类，点击即可进入对应主控台；同时支持关键词搜索功能。</p>
+            </details>
+            <details>
+                <summary>账户安全与隐私保护情况如何？</summary>
+                <p>平台采用标准加密传输与多重验证策略，建议用户设置独立密码并定期更新，避免在公共网络下长时间保持登录状态。</p>
+            </details>
+        </div>
+    </div>
+
+    <!-- 底部提示 -->
+    <div class="footer-note">
+        <p>信息卡片基于公开资料整理 · 理性参与 · 量力而行</p>
+    </div>
+</div>
+</body>
+</html>
